@@ -13,12 +13,12 @@ function App(){
 
   return (
     <div className="app">
-      <StatsScreen></StatsScreen>
-      {/* {videoDone ? (
+      
+      {videoDone ? (
           <StatsScreen/>
       ) : (
         <StartupVideo onVideoEnd={() => setVideoDone(true)} />
-      )} */}
+      )}
 
     </div>
 
