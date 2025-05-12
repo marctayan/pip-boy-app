@@ -15,13 +15,14 @@ function StatsScreen() {
     
     // Audio refs for each radio station
     const newVegasAudio = useRef(new Audio('src/assets/Radio New Vegas (1).mp3'));
+    const classicAudio = useRef(new Audio('src/assets/ca.mp3'));
     const diamondAudio = useRef(new Audio('src/assets/Diamond City Radio.mp3'));
     const wolfAudio = useRef(new Audio('src/assets/Wolfpack TV Radio (1).mp3'));
     const appAudio = useRef(new Audio('src/assets/Radio Appalachia.mp3'));
 
     // Initialize audio elements
     React.useEffect(() => {
-        const audioElements = [newVegasAudio, diamondAudio, wolfAudio, appAudio];
+        const audioElements = [newVegasAudio, classicAudio, diamondAudio, wolfAudio, appAudio];
         
         audioElements.forEach(audioRef => {
             audioRef.current.load();
@@ -60,25 +61,34 @@ function StatsScreen() {
     // Function to play audio with error handling
     const playAudio = (audioPath, station) => {
         try {
-            console.log('Attempting to play:', audioPath);
             stopAllAudio();
-            const audio = new Audio(audioPath);
+            let audio;
+            switch (station) {
+                case 'newVegas':
+                    audio = newVegasAudio.current;
+                    break;
+                case 'classic':
+                    audio = classicAudio.current;
+                    break;
+                case 'diamond':
+                    audio = diamondAudio.current;
+                    break;
+                case 'wolf':
+                    audio = wolfAudio.current;
+                    break;
+                case 'app':
+                    audio = appAudio.current;
+                    break;
+                default:
+                    audio = new Audio(audioPath);
+            }
             audio.volume = 1.0;
-            
-            audio.addEventListener('play', () => {
-                console.log('Audio started playing');
+            audio.currentTime = 0;
+            audio.play().then(() => {
                 setIsPlaying(true);
                 setCurrentStation(station);
                 setCurrentAudio(audio);
-            });
-            
-            audio.addEventListener('error', (e) => {
-                console.error('Audio error:', e);
-                setIsPlaying(false);
-                setCurrentAudio(null);
-            });
-
-            audio.play().catch(error => {
+            }).catch(error => {
                 console.error('Error playing audio:', error);
                 setIsPlaying(false);
                 setCurrentAudio(null);
@@ -91,15 +101,15 @@ function StatsScreen() {
     };
 
     const handlePlayStop = () => {
-        console.log('Play/Stop clicked. Current state:', { isPlaying, currentStation });
         if (isPlaying) {
-            console.log('Stopping audio playback');
             stopAllAudio();
         } else if (currentStation) {
-            console.log('Starting audio playback for station:', currentStation);
             switch (currentStation) {
                 case 'newVegas':
                     playAudio('src/assets/Radio New Vegas (1).mp3', 'newVegas');
+                    break;
+                case 'classic':
+                    playAudio('src/assets/ca.mp3', 'classic');
                     break;
                 case 'diamond':
                     playAudio('src/assets/Diamond City Radio.mp3', 'diamond');
@@ -111,11 +121,8 @@ function StatsScreen() {
                     playAudio('src/assets/Radio Appalachia.mp3', 'app');
                     break;
                 default:
-                    console.log('No matching station found for:', currentStation);
                     break;
             }
-        } else {
-            console.log('No station selected');
         }
     };
 
@@ -374,6 +381,15 @@ function StatsScreen() {
         playAudio('src/assets/Radio New Vegas (1).mp3', 'newVegas');
     }
     
+    const handleRadioClassicClick = (e) => {
+        e.preventDefault();
+        setImage("src/assets/images/radio/RADIO_PAGE_2.png");
+        setMapName("radio-map");
+        setShowMap(false);
+        setShowVaultBoy(false);
+        setShowRadioWave(true);
+        playAudio('src/assets/ca.mp3', 'classic');
+    }
 
     const handleRadioDiamondClick = (e) => {
         e.preventDefault();
@@ -649,7 +665,7 @@ function StatsScreen() {
                     <area onClick={handleDataClick} alt="data" title="data" href="#" coords="358,13,441,55" shape="rect" />
                     <area onClick={handleRadioClick} alt="radio" title="radio" href="#" coords="654,13,755,58" shape="rect"/>
                     <area onClick={handleRadioNewVegasClick} alt="radio-new-vegas" title="radio-new-vegas" href="#" coords="38,124,201,159" shape="rect"/>
-                    <area  alt="radio-classical" title="radio-classical" href="#" coords="37,167,193,189" shape="rect"/>
+                    <area onClick={handleRadioClassicClick} alt="radio-classical" title="radio-classical" href="#" coords="37,167,193,189" shape="rect"/>
                     <area onClick={handleRadioDiamondClick} alt="radio--diamond" title="radio--diamond" href="#" coords="37,202,222,229" shape="rect"/>
                     <area onClick={handleRadioWolfClick} alt="radio-wolf" title="radio-wolf" href="#" coords="36,277,167,300" shape="rect"/>
                     <area onClick={handleRadioAdeClick} alt="radio-ade" title="radio-ade" href="#" coords="41,317,288,340" shape="rect"/>
