@@ -489,16 +489,7 @@ function StatsScreen() {
         playAudio('src/assets/ade d.mp3', 'adeBuilding');
     }
 
-    const handleRadioAdeClick = (e) => {
-        e.preventDefault();
-        playTabSound();
-        setImage("src/assets/images/radio/RADIO_PAGE_6.png");
-        setMapName("radio-map");
-        setShowMap(false);
-        setShowVaultBoy(false);
-        setShowRadioWave(false);
-        stopAllAudio();
-    }
+    
 
     
 
