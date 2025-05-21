@@ -19,7 +19,7 @@ function StatsScreen() {
     const diamondAudio = useRef(new Audio('src/assets/Diamond City Radio.mp3'));
     const wolfAudio = useRef(new Audio('src/assets/Wolfpack TV Radio (1).mp3'));
     const appAudio = useRef(new Audio('src/assets/Radio Appalachia.mp3'));
-    const adeBuildingAudio = useRef(new Audio('src/assets/ade d.mp3'));
+    const adeBuildingAudio = useRef(new Audio('src/assets/ADE D.mp3'));
     const tabTransitionSound = useRef(new Audio('src/assets/deck_ui_tab_transition_01.wav'));
 
     // Function to play tab transition sound
@@ -132,7 +132,7 @@ function StatsScreen() {
                     playAudio('src/assets/Radio Appalachia.mp3', 'app');
                     break;
                 case 'adeBuilding':
-                    playAudio('src/assets/ade d.mp3', 'adeBuilding');
+                    playAudio('src/assets/ADE D.mp3', 'adeBuilding');
                     break;
                 default:
                     break;
@@ -486,7 +486,7 @@ function StatsScreen() {
         setShowMap(false);
         setShowVaultBoy(false);
         setShowRadioWave(true);
-        playAudio('src/assets/ade d.mp3', 'adeBuilding');
+        playAudio('src/assets/ADE D.mp3', 'adeBuilding');
     }
 
     
