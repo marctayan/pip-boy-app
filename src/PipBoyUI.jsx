@@ -19,10 +19,18 @@ function StatsScreen() {
     const diamondAudio = useRef(new Audio('src/assets/Diamond City Radio.mp3'));
     const wolfAudio = useRef(new Audio('src/assets/Wolfpack TV Radio (1).mp3'));
     const appAudio = useRef(new Audio('src/assets/Radio Appalachia.mp3'));
+    const adeBuildingAudio = useRef(new Audio('src/assets/ade d.mp3'));
+    const tabTransitionSound = useRef(new Audio('src/assets/deck_ui_tab_transition_01.wav'));
+
+    // Function to play tab transition sound
+    const playTabSound = () => {
+        tabTransitionSound.current.currentTime = 0;
+        tabTransitionSound.current.play().catch(error => console.error('Error playing tab sound:', error));
+    };
 
     // Initialize audio elements
     React.useEffect(() => {
-        const audioElements = [newVegasAudio, classicAudio, diamondAudio, wolfAudio, appAudio];
+        const audioElements = [newVegasAudio, classicAudio, diamondAudio, wolfAudio, appAudio, adeBuildingAudio, tabTransitionSound];
         
         audioElements.forEach(audioRef => {
             audioRef.current.load();
@@ -79,6 +87,9 @@ function StatsScreen() {
                 case 'app':
                     audio = appAudio.current;
                     break;
+                case 'adeBuilding':
+                    audio = adeBuildingAudio.current;
+                    break;
                 default:
                     audio = new Audio(audioPath);
             }
@@ -120,6 +131,9 @@ function StatsScreen() {
                 case 'app':
                     playAudio('src/assets/Radio Appalachia.mp3', 'app');
                     break;
+                case 'adeBuilding':
+                    playAudio('src/assets/ade d.mp3', 'adeBuilding');
+                    break;
                 default:
                     break;
             }
@@ -128,6 +142,7 @@ function StatsScreen() {
 
     const handleInvClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/inventory/INV_PAGE.png");
         setMapName("inv-map");
         setShowMap(false);
@@ -137,6 +152,7 @@ function StatsScreen() {
     
     const handleInvWeaponsClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/inventory/INV_PAGE.png");
         setShowMap(false);
         setShowVaultBoy(false);
@@ -145,6 +161,7 @@ function StatsScreen() {
 
     const handleInvArmorClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/inventory/INV_-_ARMOR.png");
         setShowMap(false);
         setShowVaultBoy(false);
@@ -153,6 +170,7 @@ function StatsScreen() {
 
     const handleInvApparelClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/inventory/INV_-_APPAREL.png");
         setShowMap(false);
         setShowVaultBoy(false);
@@ -161,6 +179,7 @@ function StatsScreen() {
 
     const handleInvFoodClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/inventory/INV_-_FOODDRINK.png");
         setShowMap(false);
         setShowVaultBoy(false);
@@ -169,6 +188,7 @@ function StatsScreen() {
 
     const handleInvMiscClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/inventory/INV_-_MISC.png");
         setShowMap(false);
         setShowVaultBoy(false);
@@ -177,6 +197,7 @@ function StatsScreen() {
 
     const handleStatClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/STATS_PAGE.png");
         setMapName("stat-map");
         setShowMap(false);
@@ -186,6 +207,7 @@ function StatsScreen() {
 
     const handleStatStatusClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/STATS_PAGE.png");
         setMapName("stat-map");
         setShowMap(false);
@@ -194,6 +216,7 @@ function StatsScreen() {
 
     const handleStatSpecialClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/special/STATS_PAGE_-_SPECIAL.png");
         setMapName("stat-special-map");
         setShowMap(false);
@@ -202,43 +225,51 @@ function StatsScreen() {
 
     const handleStatsSpecialStrengthClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/special/STATS_PAGE_-_SPECIAL_-_1.png")
         setMapName("stat-special-map");
     }
 
     const handleStatsSpecialPerceptionClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/special/STATS_PAGE_-_SPECIAL_-_2.png")
     }
 
     const handleStatsSpecialEnduranceClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/special/STATS_PAGE_-_SPECIAL_-_3.png")
     }
 
     const handleStatsSpecialCharismaClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/special/STATS_PAGE_-_SPECIAL_-_4.png")
     }
 
     const handleStatsSpecialIntelligenceClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/special/STATS_PAGE_-_SPECIAL_-_5.png")
     }
 
     const handleStatsSpecialAgilityClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/special/STATS_PAGE_-_SPECIAL_-_6.png")
     }
 
     const handleStatsSpecialLuckClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/special/STATS_PAGE_-_SPECIAL_-_7.png")
     }
 
 
     const handleStatPerksClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/perks/STATS_PAGE_-_PERKS.png");
         setMapName("stat-perks-map");
         setShowVaultBoy(false);
@@ -246,32 +277,38 @@ function StatsScreen() {
 
     const handleStatPerksScroungerClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/perks/STATS_PAGE_-_PERKS_1.png")
     }
 
     const handleStatPerksIdiotClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/perks/STATS_PAGE_-_PERKS_2.png")
     }
 
     const handleStatPerksAnimalClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/perks/STATS_PAGE_-_PERKS_3.png")
     }
 
     
     const handleStatPerksStrongClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/perks/STATS_PAGE_-_PERKS_4.png")
     }
 
     const handleStatPerksIronClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/stats page/perks/STATS_PAGE_-_PERKS_5.png")
     }
 
     const handleDataClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/DATA_PAGE.png");
         setMapName("data-map");
         setShowMap(false);
@@ -281,79 +318,93 @@ function StatsScreen() {
 
     const handleDataQuestsClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/DATA_PAGE.png")
         setMapName("data-quests-map");
     }
 
     const handleDataQuestsDoingClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/quests/DATA_PAGE_QUESTS_1.png")
     }
 
     const handleDataQuestsTheClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/quests/DATA_PAGE_QUESTS_2.png")
     }
 
     const handleDataQuestsCleanClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/quests/DATA_PAGE_QUESTS_3.png")
     }
 
     const handleDataQuestsDeliveryClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/quests/DATA_PAGE_QUESTS_4.png")
     }
 
     const handleDataQuestsTroubleClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/quests/DATA_PAGE_QUESTS_5.png")
     }
 
     const handleDataQuestsKeepingClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/quests/DATA_PAGE_QUESTS_6.png")
     }
 
 
     const handleDataStatsClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/stats/DATA_PAGE_-STATS.png");
         setMapName("data-stats-map")
     };
     
     const handleDataNotesClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/notes/DATA_PAGE_-_NOTES.png")
         setMapName("data-notes-map")
     }
 
     const handleDataNotesPoemClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/notes/DATA_PAGE_-_NOTES_1.png")
 
     }
 
     const handleDataNotesFamilyClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/notes/DATA_PAGE_-_NOTES_2.png")
 
     }
 
     const handleDataNotesDamagedClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/notes/DATA_PAGE_-_NOTES_3.png")
 
     }
 
     const handleDataNotesDiscardedClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/data page/notes/DATA_PAGE_-_NOTES_4.png")
 
     }
 
     const handleMapClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/map/MAP_PAGE.png");
         setMapName("map-map");
         setShowMap(true);
@@ -363,6 +414,7 @@ function StatsScreen() {
 
     const handleRadioClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/radio/RADIO_PAGE.png");
         setMapName("radio-map");
         setShowMap(false);
@@ -373,6 +425,7 @@ function StatsScreen() {
 
     const handleRadioNewVegasClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/radio/RADIO_PAGE_1.png");
         setMapName("radio-map");
         setShowMap(false);
@@ -383,6 +436,7 @@ function StatsScreen() {
     
     const handleRadioClassicClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/radio/RADIO_PAGE_2.png");
         setMapName("radio-map");
         setShowMap(false);
@@ -393,6 +447,7 @@ function StatsScreen() {
 
     const handleRadioDiamondClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/radio/RADIO_PAGE_3.png");
         setMapName("radio-map");
         setShowMap(false);
@@ -403,6 +458,7 @@ function StatsScreen() {
 
     const handleRadioAppClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/radio/RADIO_PAGE_4.png");
         setMapName("radio-map");
         setShowMap(false);
@@ -413,6 +469,7 @@ function StatsScreen() {
 
     const handleRadioWolfClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/radio/RADIO_PAGE_5.png");
         setMapName("radio-map");
         setShowMap(false);
@@ -421,15 +478,29 @@ function StatsScreen() {
         playAudio('src/assets/Wolfpack TV Radio (1).mp3', 'wolf');
     }
 
+    const handleRadioAdeBuildingClick = (e) => {
+        e.preventDefault();
+        playTabSound();
+        setImage("src/assets/images/radio/RADIO_PAGE_6.png");
+        setMapName("radio-map");
+        setShowMap(false);
+        setShowVaultBoy(false);
+        setShowRadioWave(true);
+        playAudio('src/assets/ade d.mp3', 'adeBuilding');
+    }
+
     const handleRadioAdeClick = (e) => {
         e.preventDefault();
+        playTabSound();
         setImage("src/assets/images/radio/RADIO_PAGE_6.png");
         setMapName("radio-map");
         setShowMap(false);
         setShowVaultBoy(false);
         setShowRadioWave(false);
         stopAllAudio();
-    }   
+    }
+
+    
 
     return (
         <div style={{
@@ -668,8 +739,9 @@ function StatsScreen() {
                     <area onClick={handleRadioClassicClick} alt="radio-classical" title="radio-classical" href="#" coords="37,167,193,189" shape="rect"/>
                     <area onClick={handleRadioDiamondClick} alt="radio--diamond" title="radio--diamond" href="#" coords="37,202,222,229" shape="rect"/>
                     <area onClick={handleRadioWolfClick} alt="radio-wolf" title="radio-wolf" href="#" coords="36,277,167,300" shape="rect"/>
-                    <area onClick={handleRadioAdeClick} alt="radio-ade" title="radio-ade" href="#" coords="41,317,288,340" shape="rect"/>
+                    <area onClick={handleRadioAdeBuildingClick} alt="radio-ade" title="radio-ade" href="#" coords="41,317,288,340" shape="rect"/>
                     <area onClick={handleRadioAppClick} alt="radio-app" title="radio-app" href="#" coords="36,238,211,268" shape="rect"/>
+                    
                 </map>
                 
             </div>
