@@ -2,6 +2,8 @@ Pip boy interface made in React.js, meant to be integrated to a Raspberry Pi wit
 
 Fit with map (LeaflyAPI), multiple lore pages, inventory, status, and a working radio tab.
 
+NOTE: Runs weird, don't know how to fix it I did this project a long time ago lmao
+
 <img width="805" height="404" alt="image" src="https://github.com/user-attachments/assets/1b889659-4b9c-4c50-8291-03240e1d211f" />
 <img width="803" height="407" alt="image" src="https://github.com/user-attachments/assets/9f634667-53a5-4c03-82e1-2fcef626a7b0" />
 <img width="806" height="406" alt="image" src="https://github.com/user-attachments/assets/0c8270a9-08ee-46f8-bca6-64e1452d17cd" />
