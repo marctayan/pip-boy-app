@@ -1,0 +1,50 @@
+/* index.css or main stylesheet */
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* Add these styles to your CSS file */
+.leaflet-container {
+  background: #0a0a0a !important;
+}
+
+.leaflet-tile {
+  filter: grayscale(100%) brightness(90%) contrast(120%);
+}
+
+/* Style the popup to match Pip-Boy theme */
+.leaflet-popup-content-wrapper {
+  background: #0a0a0a;
+  color: #1eff7e;
+  border: 1px solid #1eff7e;
+  border-radius: 4px;
+}
+
+.leaflet-popup-tip {
+  background: #1eff7e;
+}
+
+.leaflet-marker-icon {
+  filter: hue-rotate(120deg) saturate(1000%) brightness(90%);
+}
+
+/* Add these styles to your existing CSS */
+.leaflet-control-zoom {
+  border: 1px solid #1eff7e !important;
+  background: #0a0a0a !important;
+}
+
+.leaflet-control-zoom a {
+  color: #1eff7e !important;
+  background: #0a0a0a !important;
+  border-bottom: 1px solid #1eff7e !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: #1eff7e !important;
+  color: #0a0a0a !important;
+}
