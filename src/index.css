@@ -1,4 +1,4 @@
-/* index.css or main stylesheet */
+
 html, body {
   margin: 0;
   padding: 0;
@@ -7,7 +7,7 @@ html, body {
   height: 100vh;
 }
 
-/* Add these styles to your CSS file */
+
 .leaflet-container {
   background: #0a0a0a !important;
 }
@@ -16,7 +16,7 @@ html, body {
   filter: grayscale(100%) brightness(90%) contrast(120%);
 }
 
-/* Style the popup to match Pip-Boy theme */
+
 .leaflet-popup-content-wrapper {
   background: #0a0a0a;
   color: #1eff7e;
