@@ -31,7 +31,7 @@ function StartupVideo({ onVideoEnd }){
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center',
-                backgroundColor: 'black', // optional for clean black background
+                backgroundColor: 'black',
               }}
             >
               <video
