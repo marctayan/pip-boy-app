@@ -32,7 +32,6 @@ html, body {
   filter: hue-rotate(120deg) saturate(1000%) brightness(90%);
 }
 
-/* Add these styles to your existing CSS */
 .leaflet-control-zoom {
   border: 1px solid #1eff7e !important;
   background: #0a0a0a !important;
