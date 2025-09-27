@@ -11,5 +11,9 @@ NOTE: Runs weird (takes a long time for the images and audio files to properly r
 <img width="806" height="406" alt="image" src="https://github.com/user-attachments/assets/0c8270a9-08ee-46f8-bca6-64e1452d17cd" />
 <img width="805" height="403" alt="image" src="https://github.com/user-attachments/assets/de36328c-3786-4b88-865a-ce540e1bcc3f" />
 <img width="811" height="404" alt="image" src="https://github.com/user-attachments/assets/6e0ccda1-e374-4d64-aac9-07ceecb53721" />
+![B809B50F-9567-4E63-B2BA-AA0A95905864_1_105_c](https://github.com/user-attachments/assets/343abadf-6434-4c44-8e2e-0c089fff51ef)
+![21660425-A087-44C2-8D9C-5A95428B9F36_1_105_c](https://github.com/user-attachments/assets/a3eab1f0-3822-4d60-a96b-d6e072727f4e)
+
+
 
 
